@@ -1,54 +1,27 @@
-# Password Audit
+# 🔐 Password Audit
 
 A simple web-based password auditing tool for testing password hashes against a wordlist in an authorized, offline lab environment.
 
 ## Run Locally
 
-### 1. Clone the repository
-
 ```bash
 git clone https://github.com/btwsalts/password-audit.git
 cd password-audit
-```
-
-### 2. Install the requirements
-
-```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-```
-
-### 3. Start the application
-
-```bash
-python app.py
-```
-
-### 4. Open the web interface
-
-Open:
-
-```
-http://127.0.0.1:5000
+python3 app.py
 ```
 
 ## Using the Tool
 
-1. Enter the hash you want to test.
-2. Select the hashing algorithm.
-3. Upload a wordlist.
-4. Start the audit.
-5. The tool reports whether a matching password was found and the number of attempts.
+1. Open the local address shown by the application.
+2. Enter the hash you want to test.
+3. Select the hashing algorithm.
+4. Upload or provide a wordlist.
+5. Start the audit.
 
-Supported algorithms:
-
-- MD5
-- SHA-1
-- SHA-256
-- SHA-512
-
-## Example Test
-
-Create a file called `wordlist.txt`:
+Example wordlist:
 
 ```text
 hello
@@ -58,10 +31,8 @@ admin
 test
 ```
 
-For example, a SHA-256 hash for `Password123` can be tested against this wordlist.
-
 ## Notes
 
-This tool performs local dictionary-based hash comparison. It does **not** perform login attacks against websites or online services.
+This tool performs local dictionary-based hash comparison for educational and authorized testing.
 
 Use it only with passwords, hashes, and systems you own or are explicitly authorized to test.
