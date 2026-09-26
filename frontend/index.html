@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Audit</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="badge">OFFLINE SECURITY LAB</div>
+      <h1>Password <span>Audit</span></h1>
+      <p>Test password hashes against a local wordlist.</p>
+    </header>
+
+    <section class="card">
+      <label for="hash">Target hash</label>
+      <input id="hash" type="text" placeholder="Paste a test hash here" autocomplete="off">
+
+      <label for="algorithm">Algorithm</label>
+      <select id="algorithm">
+        <option value="sha256">SHA-256</option>
+        <option value="sha512">SHA-512</option>
+        <option value="sha1">SHA-1</option>
+        <option value="md5">MD5</option>
+      </select>
+
+      <label for="wordlist">Wordlist</label>
+      <input id="wordlist" type="file" accept=".txt">
+
+      <button id="auditButton">START AUDIT</button>
+      <p class="notice">Use only hashes and passwords you own or are authorized to test. This tool performs offline comparison only.</p>
+    </section>
+
+    <section id="result" class="card result hidden">
+      <div class="result-head">
+        <h2>Audit Result</h2>
+        <span id="status"></span>
+      </div>
+      <div class="stats">
+        <div><small>ATTEMPTS</small><strong id="attempts">-</strong></div>
+        <div><small>TIME</small><strong id="elapsed">-</strong></div>
+        <div><small>ALGORITHM</small><strong id="usedAlgorithm">-</strong></div>
+      </div>
+      <div id="passwordBox" class="password-box hidden">
+        <small>RECOVERED TEST PASSWORD</small>
+        <code id="password"></code>
+      </div>
+      <p id="error" class="error"></p>
+    </section>
+  </main>
+  <script src="/script.js"></script>
+</body>
+</html>
